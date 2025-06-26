@@ -1180,7 +1180,7 @@
 
             <h2 class="section-title" id="section1">第二部分  算法驱动下效率与安全的失衡</h2>
             <div class="intro">
-                <p>外卖员不断的脚步背后，是一个个看不见的数字指令在操纵调度。他们为何总在风雨中奔跑？答案不止于生活的艰辛，<span class="highlight">更藏在那个看似无形却无处不在的"算法之眼"中</span>。</p>
+                <p>外卖员不断加速的脚步背后，是一个个看不见的数字指令在操纵调度。他们为何总在风雨中奔跑？答案不止于生活的艰辛，<span class="highlight">更藏在那个看似无形却无处不在的"算法之眼"中</span>。</p>
                 <p>算法发挥作用的过程中，外卖员的劳动步骤被一一拆解为接单、取餐、送餐，每个步骤都会由算法进行指挥或决策，如决定任务分配、预计每一环节的剩余时间、对劳动结果进行分析和评估等等。在掌握外卖员劳动信息的基础上，平台把工作过程中大部分分析、设计和决策的行为交由算法完成，<span class="highlight">"智能算法像一个大脑一样收集和发送指令，将整个劳动过程都纳入到自己所构建的新秩序之中让管理更加日常化和专业化"</span>，外卖员的劳动则越发成为标准化的流水线作业。</p>
                 
                 <!-- 外卖配送流程演示 start -->
@@ -1890,11 +1890,20 @@
                         illegalDistanceTraveled = 0; legalDistanceTraveled = 0;
                         document.getElementById('route-compare-startBtn').disabled = false;
                         this.disabled = true;
-                        
+                        document.getElementById('route-compare-speedBtn').textContent = '加速 x2';
                         document.getElementById('route-compare-illegalDistance').textContent = '计算中...';
                         document.getElementById('route-compare-legalDistance').textContent = '计算中...';
                     };
 
+                    // 切换速度
+                    document.getElementById('route-compare-speedBtn').onclick = function() {
+                        if (animationSpeed === 200) {
+                            animationSpeed = 100;
+                            this.textContent = '减速 x1';
+                        } else {
+                            animationSpeed = 200;
+                            this.textContent = '加速 x2';
+                        }
                         // 动画重启
                         if (illegalAnimationInterval) { clearInterval(illegalAnimationInterval); startIllegalAnimation(); }
                         if (legalAnimationInterval) { clearInterval(legalAnimationInterval); startLegalAnimation(); }
