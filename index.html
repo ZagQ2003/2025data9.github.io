@@ -1667,6 +1667,7 @@
                             <div class="route-compare-map-controls">
                                 <button class="route-compare-control-btn" id="route-compare-startBtn">开始对比</button>
                                 <button class="route-compare-control-btn" id="route-compare-resetBtn" disabled>重置路线</button>
+                                <button class="route-compare-control-btn" id="route-compare-speedBtn">跳过动画</button>
                             </div>
                         </div>
                         <div class="route-compare-info-panel">
@@ -1890,7 +1891,7 @@
                         illegalDistanceTraveled = 0; legalDistanceTraveled = 0;
                         document.getElementById('route-compare-startBtn').disabled = false;
                         this.disabled = true;
-                        document.getElementById('route-compare-speedBtn').textContent = '加速 x2';
+                        document.getElementById('route-compare-speedBtn').textContent = '跳过动画';
                         document.getElementById('route-compare-illegalDistance').textContent = '计算中...';
                         document.getElementById('route-compare-legalDistance').textContent = '计算中...';
                     };
@@ -1899,10 +1900,10 @@
                     document.getElementById('route-compare-speedBtn').onclick = function() {
                         if (animationSpeed === 200) {
                             animationSpeed = 100;
-                            this.textContent = '减速 x1';
+                            this.textContent = '跳过动画';
                         } else {
                             animationSpeed = 200;
-                            this.textContent = '加速 x2';
+                            this.textContent = '跳过动画';
                         }
                         // 动画重启
                         if (illegalAnimationInterval) { clearInterval(illegalAnimationInterval); startIllegalAnimation(); }
